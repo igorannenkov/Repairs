@@ -20,7 +20,7 @@ namespace PostgresTest
             using (NpgsqlConnection connection = Database.GetConnection())
             {
                 connection.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT \"Model\" AS \"Модели банкоматов\" FROM \"ATMModels\" ORDER BY \"Model\"", connection);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT \"Model\" AS \"Модели УС\" FROM \"ATMModels\" ORDER BY \"Model\"", connection);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -46,7 +46,7 @@ namespace PostgresTest
                 NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"ATMModels\" WHERE \"Model\"=\'" + toDelete + "\'", connection);
                 cmd.ExecuteNonQuery();
 
-                cmd = new NpgsqlCommand("SELECT \"Model\" AS \"Модели банкоматов\" FROM \"ATMModels\" ORDER BY \"Model\"", connection);
+                cmd = new NpgsqlCommand("SELECT \"Model\" AS \"Модели УС\" FROM \"ATMModels\" ORDER BY \"Model\"", connection);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -67,7 +67,7 @@ namespace PostgresTest
                     NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"ATMModels\" WHERE \"Model\"=\'" + toDelete + "\'", connection);
                     cmd.ExecuteNonQuery();
 
-                    cmd = new NpgsqlCommand("SELECT \"Model\" AS \"Модели банкоматов\" FROM \"ATMModels\" ORDER BY \"Model\"", connection);
+                    cmd = new NpgsqlCommand("SELECT \"Model\" AS \"Модели УС\" FROM \"ATMModels\" ORDER BY \"Model\"", connection);
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);

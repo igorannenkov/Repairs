@@ -119,7 +119,7 @@ namespace PostgresTest
             using (NpgsqlConnection connection = GetConnection())
             {
                 connection.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\", \"ATMID\" AS \"ID ATM\", \"Device\" AS \"Категория\", \"Engineer\" AS \"Кто выполнил\", \"Date\" AS \"Дата\", COALESCE(\"Comment\", 'н/д') AS \"Комментарий\" FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\", \"ATMID\" AS \"ID ATM\", \"Device\" AS \"Категория\", \"Engineer\" AS \"Инженер\", \"Date\" AS \"Дата\", COALESCE(\"Comment\", 'н/д') AS \"Комментарий\" FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);

@@ -35,5 +35,10 @@ namespace PostgresTest
             }
             this.Close();
         }
+
+        private void UpdateATMModelCnlBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

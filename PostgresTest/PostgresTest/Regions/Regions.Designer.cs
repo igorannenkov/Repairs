@@ -64,7 +64,7 @@
             this.RegionsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.RegionsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RegionsDataGridView.ContextMenuStrip = this.RegionsContextMenuStrip;
-            this.RegionsDataGridView.Location = new System.Drawing.Point(12, 42);
+            this.RegionsDataGridView.Location = new System.Drawing.Point(10, 30);
             this.RegionsDataGridView.Name = "RegionsDataGridView";
             this.RegionsDataGridView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -77,7 +77,7 @@
             this.RegionsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RegionsDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.RegionsDataGridView.Size = new System.Drawing.Size(388, 227);
+            this.RegionsDataGridView.Size = new System.Drawing.Size(600, 400);
             this.RegionsDataGridView.TabIndex = 0;
             this.RegionsDataGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.RegionsDataGridView_CellMouseDoubleClick_1);
             this.RegionsDataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegionsDataGridView_KeyDown);
@@ -102,7 +102,7 @@
             this.добавитьToolStripMenuItem});
             this.RegionsMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.RegionsMenuStrip.Name = "RegionsMenuStrip";
-            this.RegionsMenuStrip.Size = new System.Drawing.Size(411, 24);
+            this.RegionsMenuStrip.Size = new System.Drawing.Size(624, 24);
             this.RegionsMenuStrip.TabIndex = 1;
             this.RegionsMenuStrip.Text = "menuStrip1";
             // 
@@ -117,11 +117,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 283);
+            this.ClientSize = new System.Drawing.Size(624, 441);
             this.Controls.Add(this.RegionsDataGridView);
             this.Controls.Add(this.RegionsMenuStrip);
             this.MainMenuStrip = this.RegionsMenuStrip;
-            this.MaximizeBox = false;
             this.Name = "Regions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Регионы";

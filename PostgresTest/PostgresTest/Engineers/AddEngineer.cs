@@ -33,5 +33,10 @@ namespace PostgresTest
             }
             this.Close();
         }
+
+        private void addEngineerCnlBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

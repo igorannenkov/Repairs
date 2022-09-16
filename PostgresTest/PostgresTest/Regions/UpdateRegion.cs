@@ -35,5 +35,10 @@ namespace PostgresTest
             }
             this.Close();
         }
+
+        private void UpdateRegionCnlBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

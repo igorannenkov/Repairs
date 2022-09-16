@@ -33,5 +33,10 @@ namespace PostgresTest
             }
             this.Close();
         }
+
+        private void AddDeviceCnlBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

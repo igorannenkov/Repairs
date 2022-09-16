@@ -19,7 +19,7 @@ namespace PostgresTest
             using (NpgsqlConnection connection = Database.GetConnection())
             {
                 connection.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT \"DeviceName\" AS \"Устройства\" FROM \"Devices\" ORDER BY \"DeviceName\"", connection);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT \"DeviceName\" AS \"Категории\" FROM \"Devices\" ORDER BY \"DeviceName\"", connection);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -45,7 +45,7 @@ namespace PostgresTest
                 NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"Devices\" WHERE \"DeviceName\"=\'"+toDelete+"\'", connection);
                 cmd.ExecuteNonQuery();
 
-                cmd = new NpgsqlCommand("SELECT \"DeviceName\" AS \"Устройства\" FROM \"Devices\" ORDER BY \"DeviceName\"", connection);
+                cmd = new NpgsqlCommand("SELECT \"DeviceName\" AS \"Категории\" FROM \"Devices\" ORDER BY \"DeviceName\"", connection);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -66,7 +66,7 @@ namespace PostgresTest
                     NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"Devices\" WHERE \"DeviceName\"=\'" + toDelete + "\'", connection);
                     cmd.ExecuteNonQuery();
 
-                    cmd = new NpgsqlCommand("SELECT \"DeviceName\" AS \"Устройства\" FROM \"Devices\" ORDER BY \"DeviceName\"", connection);
+                    cmd = new NpgsqlCommand("SELECT \"DeviceName\" AS \"Категории\" FROM \"Devices\" ORDER BY \"DeviceName\"", connection);
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);

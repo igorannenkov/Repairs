@@ -67,6 +67,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ATMsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.ATMsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ATMsGridView.ContextMenuStrip = this.ATMsContextMenuStrip;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -75,7 +76,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ATMsGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ATMsGridView.Location = new System.Drawing.Point(12, 27);
+            this.ATMsGridView.Location = new System.Drawing.Point(10, 30);
             this.ATMsGridView.Name = "ATMsGridView";
             this.ATMsGridView.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -88,8 +89,10 @@
             this.ATMsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ATMsGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.ATMsGridView.Size = new System.Drawing.Size(706, 334);
+            this.ATMsGridView.Size = new System.Drawing.Size(706, 340);
             this.ATMsGridView.TabIndex = 0;
+            this.ATMsGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ATMsGridView_CellMouseDoubleClick);
+            this.ATMsGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ATMsGridView_KeyDown);
             // 
             // ATMsContextMenuStrip
             // 
@@ -103,6 +106,7 @@
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
             this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
             // 
             // ATMsMenuStrip
             // 
@@ -125,13 +129,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 370);
+            this.ClientSize = new System.Drawing.Size(726, 382);
             this.Controls.Add(this.ATMsMenuStrip);
             this.Controls.Add(this.ATMsGridView);
             this.MainMenuStrip = this.ATMsMenuStrip;
             this.Name = "ATMs";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Банкоматы";
+            this.Text = "Устройства самообслуживания";
             ((System.ComponentModel.ISupportInitialize)(this.ATMsGridView)).EndInit();
             this.ATMsContextMenuStrip.ResumeLayout(false);
             this.ATMsMenuStrip.ResumeLayout(false);
