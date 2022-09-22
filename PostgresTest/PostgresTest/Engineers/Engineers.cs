@@ -46,7 +46,7 @@ namespace PostgresTest
                 NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"Engineers\" WHERE \"EngineerName\"=\'" + toDelete + "\'", connection);
                 cmd.ExecuteNonQuery();
 
-                cmd = new NpgsqlCommand("SELECT \"EngineerName\" AS \"Инженеры\" FROM \"Engineers\" ORDER BY \"EngineerName\"", connection);
+                cmd = new NpgsqlCommand("SELECT \"EngineerName\" AS \"Инженер\" FROM \"Engineers\" ORDER BY \"EngineerName\"", connection);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -74,7 +74,7 @@ namespace PostgresTest
                     string toDelete = EngineersGridView.CurrentCell.Value.ToString();
                     NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"Engineers\" WHERE \"EngineerName\"=\'" + toDelete + "\'", connection);
                     cmd.ExecuteNonQuery();
-                    cmd = new NpgsqlCommand("SELECT \"EngineerName\" AS \"Инженеры\" FROM \"Engineers\" ORDER BY \"EngineerName\"", connection);
+                    cmd = new NpgsqlCommand("SELECT \"EngineerName\" AS \"Инженер\" FROM \"Engineers\" ORDER BY \"EngineerName\"", connection);
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);

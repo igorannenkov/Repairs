@@ -89,7 +89,7 @@
             this.ATMsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ATMsGridView.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.ATMsGridView.Size = new System.Drawing.Size(706, 340);
+            this.ATMsGridView.Size = new System.Drawing.Size(748, 349);
             this.ATMsGridView.TabIndex = 0;
             this.ATMsGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ATMsGridView_CellMouseDoubleClick);
             this.ATMsGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ATMsGridView_KeyDown);
@@ -114,7 +114,7 @@
             this.добавитьToolStripMenuItem});
             this.ATMsMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.ATMsMenuStrip.Name = "ATMsMenuStrip";
-            this.ATMsMenuStrip.Size = new System.Drawing.Size(726, 24);
+            this.ATMsMenuStrip.Size = new System.Drawing.Size(768, 24);
             this.ATMsMenuStrip.TabIndex = 2;
             this.ATMsMenuStrip.Text = "menuStrip1";
             // 
@@ -129,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 382);
+            this.ClientSize = new System.Drawing.Size(768, 391);
             this.Controls.Add(this.ATMsMenuStrip);
             this.Controls.Add(this.ATMsGridView);
             this.MainMenuStrip = this.ATMsMenuStrip;

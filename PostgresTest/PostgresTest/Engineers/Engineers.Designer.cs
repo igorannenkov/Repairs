@@ -51,6 +51,9 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Info;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EngineersGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.EngineersGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.EngineersGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.EngineersGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -68,7 +71,7 @@
             this.EngineersGridView.ReadOnly = true;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.EngineersGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.EngineersGridView.Size = new System.Drawing.Size(600, 400);
+            this.EngineersGridView.Size = new System.Drawing.Size(332, 400);
             this.EngineersGridView.TabIndex = 0;
             this.EngineersGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.EgineersGridView_CellMouseDoubleClick);
             this.EngineersGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.EngineersGridView_KeyDown);
@@ -93,7 +96,7 @@
             this.добавитьToolStripMenuItem});
             this.engineersMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.engineersMenuStrip.Name = "engineersMenuStrip";
-            this.engineersMenuStrip.Size = new System.Drawing.Size(624, 24);
+            this.engineersMenuStrip.Size = new System.Drawing.Size(354, 24);
             this.engineersMenuStrip.TabIndex = 1;
             this.engineersMenuStrip.Text = "menuStrip1";
             // 
@@ -108,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.ClientSize = new System.Drawing.Size(354, 441);
             this.Controls.Add(this.EngineersGridView);
             this.Controls.Add(this.engineersMenuStrip);
             this.MainMenuStrip = this.engineersMenuStrip;

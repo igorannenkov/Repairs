@@ -77,7 +77,7 @@
             this.ATMModelGridView.Location = new System.Drawing.Point(10, 30);
             this.ATMModelGridView.Name = "ATMModelGridView";
             this.ATMModelGridView.ReadOnly = true;
-            this.ATMModelGridView.Size = new System.Drawing.Size(600, 400);
+            this.ATMModelGridView.Size = new System.Drawing.Size(330, 400);
             this.ATMModelGridView.TabIndex = 0;
             this.ATMModelGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ATMModelGridView_CellMouseDoubleClick);
             this.ATMModelGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ATMModelGridView_KeyDown);
@@ -102,7 +102,7 @@
             this.добавитьToolStripMenuItem});
             this.ATMModelMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.ATMModelMenuStrip.Name = "ATMModelMenuStrip";
-            this.ATMModelMenuStrip.Size = new System.Drawing.Size(624, 24);
+            this.ATMModelMenuStrip.Size = new System.Drawing.Size(354, 24);
             this.ATMModelMenuStrip.TabIndex = 2;
             this.ATMModelMenuStrip.Text = "menuStrip1";
             // 
@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.ClientSize = new System.Drawing.Size(354, 441);
             this.Controls.Add(this.ATMModelMenuStrip);
             this.Controls.Add(this.ATMModelGridView);
             this.MainMenuStrip = this.ATMModelMenuStrip;

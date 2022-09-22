@@ -27,7 +27,7 @@ namespace PostgresTest
                 string query = "UPDATE \"Regions\" SET \"RegionName\" = \'" + UpdateRegionTextBox.Text + "\' WHERE \"RegionName\" = \'" + previousValue + "\'";
                 NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
-                cmd = new NpgsqlCommand("SELECT \"RegionName\" AS \"Регионы\" FROM \"Regions\" ORDER BY \"RegionName\"", connection);
+                cmd = new NpgsqlCommand("SELECT \"RegionName\" AS \"Регион\" FROM \"Regions\" ORDER BY \"RegionName\"", connection);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);

@@ -27,7 +27,7 @@ namespace PostgresTest
                 string query = "UPDATE \"Engineers\" SET \"EngineerName\" = \'" + UpdateEngineerTextBox.Text + "\' WHERE \"EngineerName\" = \'" + previousValue + "\'";
                 NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
                 cmd.ExecuteNonQuery();
-                cmd = new NpgsqlCommand("SELECT \"EngineerName\" AS \"Инженеры\" FROM \"Engineers\" ORDER BY \"EngineerName\"", connection);
+                cmd = new NpgsqlCommand("SELECT \"EngineerName\" AS \"Инженер\" FROM \"Engineers\" ORDER BY \"EngineerName\"", connection);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
