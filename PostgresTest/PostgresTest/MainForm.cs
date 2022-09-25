@@ -37,7 +37,6 @@ namespace PostgresTest
             }
         }
 
-
         private void моделиБанкоматовToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ATMModels atmmodelsForm = new ATMModels();
