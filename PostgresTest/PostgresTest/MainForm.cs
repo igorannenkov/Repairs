@@ -12,6 +12,7 @@ using Npgsql;
 using PostgresTest.Queries_forms;
 using PostgresTest.Repairs;
 using Microsoft.Office.Interop.Excel;
+using System.Configuration;
 
 
 namespace PostgresTest
@@ -23,43 +24,19 @@ namespace PostgresTest
             InitializeComponent();
         }
 
-
-
-        public static NpgsqlConnection GetConnection()
-        {
-            return new NpgsqlConnection(@"Server=localhost;Port=5432;User ID=postgres;Password=gwh28DGCMP;Database=Repairs;");  
-        }
-
         public static void TestConnection()
         {
-            using (NpgsqlConnection connection = GetConnection())
+            using (NpgsqlConnection connection = Database.GetConnection())
             {
                 connection.Open();
                 if (connection.State == ConnectionState.Open)
                 {
                     MessageBox.Show("Соединение установлено!");
                 }
+                else MessageBox.Show("Неудачно.");
             }
         }
 
-       
-       
-
-       
-
-        private void testConnectionToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (NpgsqlConnection connection = GetConnection())
-            {
-                connection.Open();
-                if (connection.State == ConnectionState.Open)
-                {
-                    MessageBox.Show("Соединение установлено!");
-                }
-            }
-        }
-
-       
 
         private void моделиБанкоматовToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -173,14 +150,14 @@ namespace PostgresTest
 
         private void проверкаСоединенияСБДToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (NpgsqlConnection connection = GetConnection())
-            {
-                connection.Open();
-                if (connection.State == ConnectionState.Open)
-                {
-                    MessageBox.Show("Соединение установлено!");
-                }
-            }
+            TestConnection();
+        }
+
+        private void параметрыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.Owner = this;
+            settingsForm.ShowDialog();
         }
     }
 }

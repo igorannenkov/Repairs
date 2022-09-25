@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace PostgresTest
 {
@@ -11,7 +12,8 @@ namespace PostgresTest
     {
         public static NpgsqlConnection GetConnection()
         {
-            return new NpgsqlConnection(@"Server=localhost;Port=5432;User ID=postgres;Password=gwh28DGCMP;Database=Repairs;");
+            string s = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+            return new NpgsqlConnection(s);
         }
     }
 }
