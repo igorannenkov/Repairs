@@ -22,20 +22,13 @@ namespace PostgresTest
         public MainForm()
         {
             InitializeComponent();
+            Authorization AuthForm = new Authorization();
+            AuthForm.Owner = this;
+            AuthForm.Show();
         }
 
-        public static void TestConnection()
-        {
-            using (NpgsqlConnection connection = Database.GetConnection())
-            {
-                connection.Open();
-                if (connection.State == ConnectionState.Open)
-                {
-                    MessageBox.Show("Соединение установлено!");
-                }
-                else MessageBox.Show("Неудачно.");
-            }
-        }
+        
+
 
         private void моделиБанкоматовToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -149,7 +142,11 @@ namespace PostgresTest
 
         private void проверкаСоединенияСБДToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TestConnection();
+            if (Database.TestConnection())
+            {
+                MessageBox.Show("Соединение с БД установлено.","Информация",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            else MessageBox.Show("Ошибка подключения к БД. Проверьте параметры соединения.","Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
 
         private void параметрыToolStripMenuItem_Click(object sender, EventArgs e)

@@ -34,7 +34,7 @@
             this.SettingsUsernameLabel = new System.Windows.Forms.Label();
             this.SettingsPasswordLabel = new System.Windows.Forms.Label();
             this.SettingsDBNameLabel = new System.Windows.Forms.Label();
-            this.SettingsServernameTextBox = new System.Windows.Forms.TextBox();
+            this.SettingsHostnameTextBox = new System.Windows.Forms.TextBox();
             this.SettingsServerPortTextBox = new System.Windows.Forms.TextBox();
             this.SettingsUsernameTextBox = new System.Windows.Forms.TextBox();
             this.SettingsPasswordTextBox = new System.Windows.Forms.TextBox();
@@ -77,6 +77,7 @@
             // SettingsUsernameLabel
             // 
             this.SettingsUsernameLabel.AutoSize = true;
+            this.SettingsUsernameLabel.Enabled = false;
             this.SettingsUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SettingsUsernameLabel.Location = new System.Drawing.Point(11, 200);
             this.SettingsUsernameLabel.Name = "SettingsUsernameLabel";
@@ -87,6 +88,7 @@
             // SettingsPasswordLabel
             // 
             this.SettingsPasswordLabel.AutoSize = true;
+            this.SettingsPasswordLabel.Enabled = false;
             this.SettingsPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SettingsPasswordLabel.Location = new System.Drawing.Point(11, 252);
             this.SettingsPasswordLabel.Name = "SettingsPasswordLabel";
@@ -104,14 +106,14 @@
             this.SettingsDBNameLabel.TabIndex = 5;
             this.SettingsDBNameLabel.Text = "Имя БД";
             // 
-            // SettingsServernameTextBox
+            // SettingsHostnameTextBox
             // 
-            this.SettingsServernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SettingsServernameTextBox.Location = new System.Drawing.Point(14, 67);
-            this.SettingsServernameTextBox.Name = "SettingsServernameTextBox";
-            this.SettingsServernameTextBox.Size = new System.Drawing.Size(244, 26);
-            this.SettingsServernameTextBox.TabIndex = 0;
-            this.SettingsServernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SettingsHostnameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.SettingsHostnameTextBox.Location = new System.Drawing.Point(14, 67);
+            this.SettingsHostnameTextBox.Name = "SettingsHostnameTextBox";
+            this.SettingsHostnameTextBox.Size = new System.Drawing.Size(244, 26);
+            this.SettingsHostnameTextBox.TabIndex = 0;
+            this.SettingsHostnameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // SettingsServerPortTextBox
             // 
@@ -124,6 +126,7 @@
             // 
             // SettingsUsernameTextBox
             // 
+            this.SettingsUsernameTextBox.Enabled = false;
             this.SettingsUsernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SettingsUsernameTextBox.Location = new System.Drawing.Point(15, 223);
             this.SettingsUsernameTextBox.Name = "SettingsUsernameTextBox";
@@ -133,6 +136,7 @@
             // 
             // SettingsPasswordTextBox
             // 
+            this.SettingsPasswordTextBox.Enabled = false;
             this.SettingsPasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.SettingsPasswordTextBox.Location = new System.Drawing.Point(16, 275);
             this.SettingsPasswordTextBox.Name = "SettingsPasswordTextBox";
@@ -153,9 +157,9 @@
             // SettingsCancelBtn
             // 
             this.SettingsCancelBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SettingsCancelBtn.Location = new System.Drawing.Point(138, 316);
+            this.SettingsCancelBtn.Location = new System.Drawing.Point(141, 316);
             this.SettingsCancelBtn.Name = "SettingsCancelBtn";
-            this.SettingsCancelBtn.Size = new System.Drawing.Size(120, 40);
+            this.SettingsCancelBtn.Size = new System.Drawing.Size(115, 40);
             this.SettingsCancelBtn.TabIndex = 6;
             this.SettingsCancelBtn.Text = "Отмена";
             this.SettingsCancelBtn.UseVisualStyleBackColor = true;
@@ -164,9 +168,9 @@
             // SettingsSaveBtn
             // 
             this.SettingsSaveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SettingsSaveBtn.Location = new System.Drawing.Point(12, 316);
+            this.SettingsSaveBtn.Location = new System.Drawing.Point(19, 316);
             this.SettingsSaveBtn.Name = "SettingsSaveBtn";
-            this.SettingsSaveBtn.Size = new System.Drawing.Size(120, 40);
+            this.SettingsSaveBtn.Size = new System.Drawing.Size(115, 40);
             this.SettingsSaveBtn.TabIndex = 5;
             this.SettingsSaveBtn.Text = "Сохранить";
             this.SettingsSaveBtn.UseVisualStyleBackColor = true;
@@ -183,7 +187,7 @@
             this.Controls.Add(this.SettingsPasswordTextBox);
             this.Controls.Add(this.SettingsUsernameTextBox);
             this.Controls.Add(this.SettingsServerPortTextBox);
-            this.Controls.Add(this.SettingsServernameTextBox);
+            this.Controls.Add(this.SettingsHostnameTextBox);
             this.Controls.Add(this.SettingsDBNameLabel);
             this.Controls.Add(this.SettingsPasswordLabel);
             this.Controls.Add(this.SettingsUsernameLabel);
@@ -208,7 +212,7 @@
         private System.Windows.Forms.Label SettingsUsernameLabel;
         private System.Windows.Forms.Label SettingsPasswordLabel;
         private System.Windows.Forms.Label SettingsDBNameLabel;
-        private System.Windows.Forms.TextBox SettingsServernameTextBox;
+        private System.Windows.Forms.TextBox SettingsHostnameTextBox;
         private System.Windows.Forms.TextBox SettingsServerPortTextBox;
         private System.Windows.Forms.TextBox SettingsUsernameTextBox;
         private System.Windows.Forms.TextBox SettingsPasswordTextBox;

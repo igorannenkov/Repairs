@@ -60,9 +60,9 @@
             this.AddCategoryLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddCategoryLbl.Location = new System.Drawing.Point(12, 15);
             this.AddCategoryLbl.Name = "AddCategoryLbl";
-            this.AddCategoryLbl.Size = new System.Drawing.Size(173, 20);
+            this.AddCategoryLbl.Size = new System.Drawing.Size(226, 20);
             this.AddCategoryLbl.TabIndex = 2;
-            this.AddCategoryLbl.Text = "Наименование кат.";
+            this.AddCategoryLbl.Text = "Наименование категории";
             // 
             // AddCategoryCnlBtn
             // 

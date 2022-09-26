@@ -262,12 +262,12 @@
             // 
             this.GenCategoryCheckBox.AutoSize = true;
             this.GenCategoryCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.GenCategoryCheckBox.Location = new System.Drawing.Point(10, 190);
+            this.GenCategoryCheckBox.Location = new System.Drawing.Point(30, 188);
             this.GenCategoryCheckBox.Name = "GenCategoryCheckBox";
             this.GenCategoryCheckBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.GenCategoryCheckBox.Size = new System.Drawing.Size(177, 24);
+            this.GenCategoryCheckBox.Size = new System.Drawing.Size(157, 24);
             this.GenCategoryCheckBox.TabIndex = 26;
-            this.GenCategoryCheckBox.Text = "Категория ремонта";
+            this.GenCategoryCheckBox.Text = "Категория работ";
             this.GenCategoryCheckBox.UseVisualStyleBackColor = true;
             this.GenCategoryCheckBox.CheckedChanged += new System.EventHandler(this.GenCategoryCheckBox_CheckedChanged);
             // 

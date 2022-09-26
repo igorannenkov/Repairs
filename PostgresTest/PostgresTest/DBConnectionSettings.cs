@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using Npgsql;
 
 namespace PostgresTest
 {
@@ -16,6 +17,13 @@ namespace PostgresTest
         public SettingsForm()
         {
             InitializeComponent();
+
+            string s = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
+            NpgsqlConnectionStringBuilder builder = new NpgsqlConnectionStringBuilder(s);
+            this.SettingsDBNameTextBox.Text = builder.Database;
+            this.SettingsServerPortTextBox.Text = builder.Port.ToString();
+            this.SettingsHostnameTextBox.Text = builder.Host;
+            this.Refresh();
         }
 
         private void SettingsCancelBtn_Click(object sender, EventArgs e)
@@ -27,35 +35,36 @@ namespace PostgresTest
         {
             //@"Server=localhost;Port=5432;User ID=postgres; Password = gwh28DGCMP; Database = Repairs; "
             string ConnectionString = "";
-            if (SettingsServernameTextBox.Text != string.Empty && SettingsServerPortTextBox.Text != string.Empty &&
-                SettingsDBNameTextBox.Text != string.Empty && SettingsUsernameTextBox.Text != string.Empty &&
-                SettingsPasswordTextBox.Text != string.Empty)
+            if (SettingsHostnameTextBox.Text != string.Empty && 
+                SettingsServerPortTextBox.Text != string.Empty &&
+                SettingsDBNameTextBox.Text != string.Empty)
+                /*
+                && 
+                SettingsUsernameTextBox.Text != string.Empty &&
+                SettingsPasswordTextBox.Text != string.Empty)*/
             {
-                ConnectionString = @"Server=" + SettingsServernameTextBox.Text + ";" +
+                ConnectionString = @"Server=" + SettingsHostnameTextBox.Text + ";" +
                                     "Port=" + SettingsServerPortTextBox.Text + ";" +
-                                    "User ID=" + SettingsUsernameTextBox.Text + ";" +
-                                    "Password=" + SettingsPasswordTextBox.Text + ";" +
+                                 //   "User ID=" + SettingsUsernameTextBox.Text + ";" +
+                                  //  "Password=" + SettingsPasswordTextBox.Text + ";" +
                                     "Database=" + SettingsDBNameTextBox.Text + ";";
-
-
-                //ConfigurationManager.ConnectionStrings["DBConnection"]. //ConnectionString = ConnectionString;
 
                 Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-                config.ConnectionStrings.ConnectionStrings.Remove("DBConnection");
+                                config.ConnectionStrings.ConnectionStrings.Remove("DBConnection");
                 config.ConnectionStrings.ConnectionStrings.Add(new ConnectionStringSettings("DBConnection", ConnectionString));  
-
           
                 config.Save(ConfigurationSaveMode.Modified);
                 ConfigurationManager.RefreshSection("connectionStrings");
-               // config.AppSettings.Settings["DBConnection"].Value = ConnectionString;
 
+                Credentials.UserID = SettingsUsernameTextBox.Text;
+                Credentials.Password = SettingsPasswordTextBox.Text;
 
-                MessageBox.Show("Изменения приняты. Проверьте подключение к БД.");
+                MessageBox.Show("Параметры соединения изменены. Проверьте подключение к БД.","Информация",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 this.Close();
             }
             else
-            { MessageBox.Show("Необходимо заполнить одно из полей, конфигурация НЕ СОХРАНЕНА!"); }
+            { MessageBox.Show("Необходимо заполнить каждое из полей, конфигурация подключения НЕ СОХРАНЕНА!", "Ошибка сохранения параметров", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
         }
     }
