@@ -36,26 +36,7 @@ namespace PostgresTest
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (NpgsqlConnection connection = Database.GetConnection())
-            {
-                connection.Open();
-                string toDelete = ATMsGridView.CurrentRow.Cells[0].Value.ToString();
-
-                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"ATMs\" WHERE \"ATMID\"=\'" + toDelete + "\'", connection);
-                cmd.ExecuteNonQuery();
-
-                cmd = new NpgsqlCommand("SELECT \"ATMID\" AS \"ID\",\"Address\" AS \"Адрес\",\"Model\" AS \"Модель\",\"Region\" AS \"Регион\" FROM \"ATMs\"", connection);
-
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                ATMsGridView.DataSource = ds.Tables[0];
-            }
-        }
-
-        private void ATMsGridView_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete)
+            try
             {
                 using (NpgsqlConnection connection = Database.GetConnection())
                 {
@@ -65,12 +46,59 @@ namespace PostgresTest
                     NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"ATMs\" WHERE \"ATMID\"=\'" + toDelete + "\'", connection);
                     cmd.ExecuteNonQuery();
 
-                    cmd = new NpgsqlCommand("SELECT \"ATMID\" AS \"ATM ID\",\"Address\" AS \"Адрес\",\"Model\" AS \"Модель\",\"Region\" AS \"Регион\" FROM \"ATMs\"", connection);
+                    cmd = new NpgsqlCommand("SELECT \"ATMID\" AS \"ID\",\"Address\" AS \"Адрес\",\"Model\" AS \"Модель\",\"Region\" AS \"Регион\" FROM \"ATMs\"", connection);
 
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);
                     ATMsGridView.DataSource = ds.Tables[0];
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                if (ex.Message.Contains("23503"))
+                {
+                    MessageBox.Show("Удаление данных невозможно, т.к. по данному устройству в базе зарегистрированы работы.","Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    MessageBox.Show(ex.Message, "Ошибка базы данных", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void ATMsGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                try
+                {
+                    using (NpgsqlConnection connection = Database.GetConnection())
+                    {
+                        connection.Open();
+                        string toDelete = ATMsGridView.CurrentRow.Cells[0].Value.ToString();
+
+                        NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"ATMs\" WHERE \"ATMID\"=\'" + toDelete + "\'", connection);
+                        cmd.ExecuteNonQuery();
+
+                        cmd = new NpgsqlCommand("SELECT \"ATMID\" AS \"ID\",\"Address\" AS \"Адрес\",\"Model\" AS \"Модель\",\"Region\" AS \"Регион\" FROM \"ATMs\"", connection);
+
+                        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        ATMsGridView.DataSource = ds.Tables[0];
+                    }
+                }
+                catch (NpgsqlException ex)
+                {
+                    if (ex.Message.Contains("23503"))
+                    {
+                        MessageBox.Show("Удаление данных невозможно, т.к. по данному устройству в базе зарегистрированы работы.", "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка базы данных", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

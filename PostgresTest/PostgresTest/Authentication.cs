@@ -41,6 +41,5 @@ namespace PostgresTest
             settingsForm.Owner = this;
             settingsForm.ShowDialog();
         }
-
     }
 }

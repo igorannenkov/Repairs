@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.UpdateATMTextBox = new System.Windows.Forms.TextBox();
+            this.UpdateATMModelTextBox = new System.Windows.Forms.TextBox();
             this.UpdateATMLabel = new System.Windows.Forms.Label();
             this.UpdateATMModelBtn = new System.Windows.Forms.Button();
             this.UpdateATMModelCnlBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // UpdateATMTextBox
+            // UpdateATMModelTextBox
             // 
-            this.UpdateATMTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.UpdateATMTextBox.Location = new System.Drawing.Point(12, 48);
-            this.UpdateATMTextBox.Name = "UpdateATMTextBox";
-            this.UpdateATMTextBox.Size = new System.Drawing.Size(277, 26);
-            this.UpdateATMTextBox.TabIndex = 0;
-            this.UpdateATMTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.UpdateATMModelTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.UpdateATMModelTextBox.Location = new System.Drawing.Point(12, 48);
+            this.UpdateATMModelTextBox.Name = "UpdateATMModelTextBox";
+            this.UpdateATMModelTextBox.Size = new System.Drawing.Size(277, 26);
+            this.UpdateATMModelTextBox.TabIndex = 0;
+            this.UpdateATMModelTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // UpdateATMLabel
             // 
@@ -83,7 +83,7 @@
             this.Controls.Add(this.UpdateATMModelCnlBtn);
             this.Controls.Add(this.UpdateATMModelBtn);
             this.Controls.Add(this.UpdateATMLabel);
-            this.Controls.Add(this.UpdateATMTextBox);
+            this.Controls.Add(this.UpdateATMModelTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "UpdateATMModel";
@@ -96,7 +96,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox UpdateATMTextBox;
+        private System.Windows.Forms.TextBox UpdateATMModelTextBox;
         private System.Windows.Forms.Label UpdateATMLabel;
         private System.Windows.Forms.Button UpdateATMModelBtn;
         private System.Windows.Forms.Button UpdateATMModelCnlBtn;

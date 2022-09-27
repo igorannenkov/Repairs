@@ -49,19 +49,39 @@ namespace PostgresTest.Repairs
 
         private void AddRepairBtn_Click(object sender, EventArgs e)
         {
-            using (NpgsqlConnection connection = Database.GetConnection())
+            if (AddRepIDAtmComboBox.Text != string.Empty && AddRepCatComboBox.Text != string.Empty && AddRepEngComboBox.Text != string.Empty && AddRepairDTPicker.Text != string.Empty && AddRepCommTextBox.Text != string.Empty)
             {
-                connection.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO \"Repairs\" (\"ATMID\",\"Category\",\"Engineer\",\"Date\",\"Comment\") VALUES (\'"+AddRepIDAtmComboBox.Text+"\',\'"+AddRepCatComboBox.Text+"\',\'"+AddRepEngComboBox.Text+"\',\'"+AddRepairDTPicker.Value.ToString("dd/MM/yyyy") + "\',\'" + AddRepCommTextBox.Text+"\')", connection);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    using (NpgsqlConnection connection = Database.GetConnection())
+                    {
+                        connection.Open();
+                        NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO \"Repairs\" (\"ATMID\",\"Category\",\"Engineer\",\"Date\",\"Comment\") VALUES (\'" + AddRepIDAtmComboBox.Text + "\',\'" + AddRepCatComboBox.Text + "\',\'" + AddRepEngComboBox.Text + "\',\'" + AddRepairDTPicker.Value.ToString("dd/MM/yyyy") + "\',\'" + AddRepCommTextBox.Text + "\')", connection);
+                        cmd.ExecuteNonQuery();
 
-                cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\",\"ATMID\" AS \"ID УС\",\"Category\" AS \"Категория\",\"Engineer\" AS \"Инженер\",\"Date\" AS \"Дата\",\"Comment\" AS \"Комментарий\" FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                (this.Owner.Controls["RepairGridView"] as DataGridView).DataSource = ds.Tables[0];
+                        cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\"," +
+                                                        "\"ATMID\" AS \"ID УС\"," +
+                                                        "\"Category\" AS \"Категория\"," +
+                                                        "\"Engineer\" AS \"Инженер\"," +
+                                                        "\"Date\" AS \"Дата\"," +
+                                                        "\"Comment\" AS \"Комментарий\" " +
+                                                "FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
+                        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        (this.Owner.Controls["RepairGridView"] as DataGridView).DataSource = ds.Tables[0];
+                    }
+                    this.Close();
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка базы данных", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            this.Close();
+            else
+            {
+                MessageBox.Show("Для сохранения информации необходимо заполнить все поля. Проверьте вводимые данные.", "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

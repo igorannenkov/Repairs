@@ -1,12 +1,6 @@
 ﻿using Npgsql;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PostgresTest.Repairs
@@ -39,11 +33,11 @@ namespace PostgresTest.Repairs
             UpdateRepair updRepairForm = new UpdateRepair();
             updRepairForm = new UpdateRepair();
             updRepairForm.Owner = this;
-            
-            using(NpgsqlConnection connection = Database.GetConnection())
+
+            using (NpgsqlConnection connection = Database.GetConnection())
             {
                 connection.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT \"ATMID\" FROM \"ATMs\" AS \"ID УС\" ORDER BY \"ATMID\"",connection);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT \"ATMID\" FROM \"ATMs\" AS \"ID УС\" ORDER BY \"ATMID\"", connection);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -76,23 +70,7 @@ namespace PostgresTest.Repairs
 
         private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (NpgsqlConnection connection = Database.GetConnection())
-            {
-                connection.Open();
-                string toDelete = RepairGridView.CurrentRow.Cells[0].Value.ToString();
-                NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"Repairs\" WHERE \"RepairID\"=\'" + toDelete + "\'", connection);
-                cmd.ExecuteNonQuery();
-                cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\", \"ATMID\" AS \"ID УС\", \"Category\" AS \"Категория\", \"Engineer\" AS \"Инженер\", \"Date\" AS \"Дата\", COALESCE(\"Comment\", 'н/д') AS \"Комментарий\" FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                RepairGridView.DataSource = ds.Tables[0];
-            }
-        }
-
-        private void RepairGridView_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete)
+            try
             {
                 using (NpgsqlConnection connection = Database.GetConnection())
                 {
@@ -105,6 +83,36 @@ namespace PostgresTest.Repairs
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);
                     RepairGridView.DataSource = ds.Tables[0];
+                }
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка базы данных", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RepairGridView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                try
+                {
+                    using (NpgsqlConnection connection = Database.GetConnection())
+                    {
+                        connection.Open();
+                        string toDelete = RepairGridView.CurrentRow.Cells[0].Value.ToString();
+                        NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"Repairs\" WHERE \"RepairID\"=\'" + toDelete + "\'", connection);
+                        cmd.ExecuteNonQuery();
+                        cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\", \"ATMID\" AS \"ID УС\", \"Category\" AS \"Категория\", \"Engineer\" AS \"Инженер\", \"Date\" AS \"Дата\", COALESCE(\"Comment\", 'н/д') AS \"Комментарий\" FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
+                        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        RepairGridView.DataSource = ds.Tables[0];
+                    }
+                }
+                catch (NpgsqlException ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка базы данных", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

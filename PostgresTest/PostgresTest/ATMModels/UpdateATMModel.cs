@@ -1,12 +1,6 @@
 ﻿using Npgsql;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PostgresTest
@@ -20,20 +14,41 @@ namespace PostgresTest
 
         private void UpdateATMModelBtn_Click(object sender, EventArgs e)
         {
-            using (NpgsqlConnection connection = Database.GetConnection())
+            if (UpdateATMModelTextBox.Text != string.Empty)
             {
-                connection.Open();
-                string previousValue = this.Tag.ToString();
-                string query = "UPDATE \"ATMModels\" SET \"Model\" = \'" + UpdateATMTextBox.Text + "\' WHERE \"Model\" = \'" + previousValue + "\'";
-                NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
-                cmd = new NpgsqlCommand("SELECT \"Model\" AS \"Модель УС\" FROM \"ATMModels\" ORDER BY \"Model\"", connection);
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                (this.Owner.Controls["ATMModelGridView"] as DataGridView).DataSource = ds.Tables[0];
+                try
+                {
+                    using (NpgsqlConnection connection = Database.GetConnection())
+                    {
+                        connection.Open();
+                        string previousValue = this.Tag.ToString();
+                        string query = "UPDATE \"ATMModels\" SET \"Model\" = \'" + UpdateATMModelTextBox.Text + "\' WHERE \"Model\" = \'" + previousValue + "\'";
+                        NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
+                        cmd.ExecuteNonQuery();
+                        cmd = new NpgsqlCommand("SELECT \"Model\" AS \"Модель УС\" FROM \"ATMModels\" ORDER BY \"Model\"", connection);
+                        NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
+                        DataSet ds = new DataSet();
+                        adapter.Fill(ds);
+                        (this.Owner.Controls["ATMModelGridView"] as DataGridView).DataSource = ds.Tables[0];
+                    }
+                    this.Close();
+                }
+                catch (NpgsqlException ex)
+                {
+                    if (ex.Message.Contains("23505"))
+                    {
+                        MessageBox.Show("Модель с данным наименованием существует. Введите другое наименование.", "Проверка уникальности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        MessageBox.Show(ex.Message, "Ошибка базы данных", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
-            this.Close();
+            else
+            {
+                MessageBox.Show("Для сохранения информации необходимо указать модель устройства. Проверьте вводимые данные.", "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void UpdateATMModelCnlBtn_Click(object sender, EventArgs e)

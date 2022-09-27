@@ -32,8 +32,9 @@ namespace PostgresTest
             }
             catch (Exception)
             {
-                return false;
+
                 //MessageBox.Show(ex.Message);
+                return false;
 
             }
         }
