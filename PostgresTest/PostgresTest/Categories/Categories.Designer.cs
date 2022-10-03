@@ -77,7 +77,7 @@
             this.CategoriesGridView.Location = new System.Drawing.Point(10, 30);
             this.CategoriesGridView.Name = "CategoriesGridView";
             this.CategoriesGridView.ReadOnly = true;
-            this.CategoriesGridView.Size = new System.Drawing.Size(330, 400);
+            this.CategoriesGridView.Size = new System.Drawing.Size(410, 467);
             this.CategoriesGridView.TabIndex = 0;
             this.CategoriesGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DevicesGridView_CellMouseDoubleClick);
             this.CategoriesGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DevicesGridView_KeyDown);
@@ -102,7 +102,7 @@
             this.добавитьToolStripMenuItem});
             this.CatMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.CatMenuStrip.Name = "CatMenuStrip";
-            this.CatMenuStrip.Size = new System.Drawing.Size(354, 24);
+            this.CatMenuStrip.Size = new System.Drawing.Size(434, 24);
             this.CatMenuStrip.TabIndex = 1;
             this.CatMenuStrip.Text = "menuStrip1";
             // 
@@ -117,7 +117,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(354, 441);
+            this.ClientSize = new System.Drawing.Size(434, 508);
             this.Controls.Add(this.CategoriesGridView);
             this.Controls.Add(this.CatMenuStrip);
             this.MainMenuStrip = this.CatMenuStrip;

@@ -38,7 +38,6 @@
             this.UpdATMAddrTextBox = new System.Windows.Forms.TextBox();
             this.ATMsUpdAtmBtn = new System.Windows.Forms.Button();
             this.ATMsUpdAtmCnlBtn = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -83,8 +82,11 @@
             // 
             // UpdATMModComboBox
             // 
+            this.UpdATMModComboBox.DropDownHeight = 300;
+            this.UpdATMModComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UpdATMModComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UpdATMModComboBox.FormattingEnabled = true;
+            this.UpdATMModComboBox.IntegralHeight = false;
             this.UpdATMModComboBox.Location = new System.Drawing.Point(92, 44);
             this.UpdATMModComboBox.Name = "UpdATMModComboBox";
             this.UpdATMModComboBox.Size = new System.Drawing.Size(425, 28);
@@ -92,8 +94,11 @@
             // 
             // UpdATMRegionComboBox
             // 
+            this.UpdATMRegionComboBox.DropDownHeight = 300;
+            this.UpdATMRegionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UpdATMRegionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UpdATMRegionComboBox.FormattingEnabled = true;
+            this.UpdATMRegionComboBox.IntegralHeight = false;
             this.UpdATMRegionComboBox.Location = new System.Drawing.Point(92, 110);
             this.UpdATMRegionComboBox.Name = "UpdATMRegionComboBox";
             this.UpdATMRegionComboBox.Size = new System.Drawing.Size(425, 28);
@@ -137,21 +142,11 @@
             this.ATMsUpdAtmCnlBtn.UseVisualStyleBackColor = true;
             this.ATMsUpdAtmCnlBtn.Click += new System.EventHandler(this.ATMsUpdAtmCnlBtn_Click);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 157);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 26);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Для подтверждения ввода\r\nнажмите \"Внести данные\"";
-            // 
             // UpdateATM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 194);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.ATMsUpdAtmCnlBtn);
             this.Controls.Add(this.ATMsUpdAtmBtn);
             this.Controls.Add(this.UpdATMAddrTextBox);
@@ -184,6 +179,5 @@
         private System.Windows.Forms.TextBox UpdATMAddrTextBox;
         private System.Windows.Forms.Button ATMsUpdAtmBtn;
         private System.Windows.Forms.Button ATMsUpdAtmCnlBtn;
-        private System.Windows.Forms.Label label5;
     }
 }

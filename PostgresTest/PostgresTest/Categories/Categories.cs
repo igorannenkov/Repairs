@@ -37,7 +37,6 @@ namespace PostgresTest
                     connection.Open();
                     string toDelete = CategoriesGridView.CurrentCell.Value.ToString();
 
-
                     NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"Categories\" WHERE \"CategoryName\"=\'" + toDelete + "\'", connection);
                     cmd.ExecuteNonQuery();
 
@@ -52,7 +51,8 @@ namespace PostgresTest
             {
                 if (ex.Message.Contains("23503"))
                 {
-                    MessageBox.Show("Удаление данных невозможно, т.к. по текущей категории в базе зарегистрированы работы.", "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Удаление данных невозможно, т.к. по текущей категории в базе зарегистрированы работы.", 
+                                    "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -87,7 +87,8 @@ namespace PostgresTest
                 {
                     if (ex.Message.Contains("23503"))
                     {
-                        MessageBox.Show("Удаление данных невозможно, т.к. по текущей категории в базе зарегистрированы работы.", "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Удаление данных невозможно, т.к. по текущей категории в базе зарегистрированы работы.", 
+                                        "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -96,7 +97,6 @@ namespace PostgresTest
                 }
             }
         }
-
 
         private void DevicesGridView_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -107,7 +107,5 @@ namespace PostgresTest
             updDeviceForm.Tag = prevDevName;
             updDeviceForm.ShowDialog();
         }
-
-
     }
 }

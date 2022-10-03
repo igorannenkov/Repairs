@@ -56,7 +56,9 @@ namespace PostgresTest.Repairs
                     using (NpgsqlConnection connection = Database.GetConnection())
                     {
                         connection.Open();
-                        NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO \"Repairs\" (\"ATMID\",\"Category\",\"Engineer\",\"Date\",\"Comment\") VALUES (\'" + AddRepIDAtmComboBox.Text + "\',\'" + AddRepCatComboBox.Text + "\',\'" + AddRepEngComboBox.Text + "\',\'" + AddRepairDTPicker.Value.ToString("dd/MM/yyyy") + "\',\'" + AddRepCommTextBox.Text + "\')", connection);
+                        NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO \"Repairs\" (\"ATMID\",\"Category\",\"Engineer\",\"Date\",\"Comment\") VALUES (\'" + 
+                                                              AddRepIDAtmComboBox.Text + "\',\'" + AddRepCatComboBox.Text + "\',\'" + AddRepEngComboBox.Text + "\',\'" + 
+                                                              AddRepairDTPicker.Value.ToString("dd/MM/yyyy") + "\',\'" + AddRepCommTextBox.Text + "\')", connection);
                         cmd.ExecuteNonQuery();
 
                         cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\"," +
@@ -65,7 +67,7 @@ namespace PostgresTest.Repairs
                                                         "\"Engineer\" AS \"Инженер\"," +
                                                         "\"Date\" AS \"Дата\"," +
                                                         "\"Comment\" AS \"Комментарий\" " +
-                                                "FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
+                                                        "FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
                         NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                         DataSet ds = new DataSet();
                         adapter.Fill(ds);
@@ -80,7 +82,8 @@ namespace PostgresTest.Repairs
             }
             else
             {
-                MessageBox.Show("Для сохранения информации необходимо заполнить все поля. Проверьте вводимые данные.", "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Для сохранения информации необходимо заполнить все поля. Проверьте вводимые данные.", 
+                                "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }

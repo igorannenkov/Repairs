@@ -110,8 +110,11 @@
             // 
             // UpdRepIDAtmComboBox
             // 
+            this.UpdRepIDAtmComboBox.DropDownHeight = 300;
+            this.UpdRepIDAtmComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UpdRepIDAtmComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UpdRepIDAtmComboBox.FormattingEnabled = true;
+            this.UpdRepIDAtmComboBox.IntegralHeight = false;
             this.UpdRepIDAtmComboBox.Location = new System.Drawing.Point(147, 9);
             this.UpdRepIDAtmComboBox.Name = "UpdRepIDAtmComboBox";
             this.UpdRepIDAtmComboBox.Size = new System.Drawing.Size(425, 28);
@@ -119,8 +122,11 @@
             // 
             // UpdRepCatComboBox
             // 
+            this.UpdRepCatComboBox.DropDownHeight = 300;
+            this.UpdRepCatComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UpdRepCatComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UpdRepCatComboBox.FormattingEnabled = true;
+            this.UpdRepCatComboBox.IntegralHeight = false;
             this.UpdRepCatComboBox.Location = new System.Drawing.Point(147, 44);
             this.UpdRepCatComboBox.Name = "UpdRepCatComboBox";
             this.UpdRepCatComboBox.Size = new System.Drawing.Size(425, 28);
@@ -128,8 +134,11 @@
             // 
             // UpdRepEngComboBox
             // 
+            this.UpdRepEngComboBox.DropDownHeight = 300;
+            this.UpdRepEngComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.UpdRepEngComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UpdRepEngComboBox.FormattingEnabled = true;
+            this.UpdRepEngComboBox.IntegralHeight = false;
             this.UpdRepEngComboBox.Location = new System.Drawing.Point(147, 80);
             this.UpdRepEngComboBox.Name = "UpdRepEngComboBox";
             this.UpdRepEngComboBox.Size = new System.Drawing.Size(425, 28);

@@ -33,15 +33,10 @@ namespace PostgresTest
 
         private void SettingsSaveBtn_Click(object sender, EventArgs e)
         {
-            //@"Server=localhost;Port=5432;User ID=postgres; Password = gwh28DGCMP; Database = Repairs; "
             string ConnectionString = "";
             if (SettingsHostnameTextBox.Text != string.Empty && 
                 SettingsServerPortTextBox.Text != string.Empty &&
                 SettingsDBNameTextBox.Text != string.Empty)
-                /*
-                && 
-                SettingsUsernameTextBox.Text != string.Empty &&
-                SettingsPasswordTextBox.Text != string.Empty)*/
             {
                 ConnectionString = @"Server=" + SettingsHostnameTextBox.Text + ";" +
                                     "Port=" + SettingsServerPortTextBox.Text + ";" +
@@ -51,7 +46,7 @@ namespace PostgresTest
 
                 Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
 
-                                config.ConnectionStrings.ConnectionStrings.Remove("DBConnection");
+                config.ConnectionStrings.ConnectionStrings.Remove("DBConnection");
                 config.ConnectionStrings.ConnectionStrings.Add(new ConnectionStringSettings("DBConnection", ConnectionString));  
           
                 config.Save(ConfigurationSaveMode.Modified);
@@ -60,11 +55,15 @@ namespace PostgresTest
                 Credentials.UserID = SettingsUsernameTextBox.Text;
                 Credentials.Password = SettingsPasswordTextBox.Text;
 
-                MessageBox.Show("Параметры соединения изменены. Проверьте подключение к БД.","Информация",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Параметры соединения изменены. Проверьте подключение к БД.",
+                                "Информация",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 this.Close();
             }
             else
-            { MessageBox.Show("Необходимо заполнить каждое из полей, конфигурация подключения НЕ СОХРАНЕНА!", "Ошибка сохранения параметров", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+            { 
+                MessageBox.Show("Необходимо заполнить каждое из полей, конфигурация подключения НЕ СОХРАНЕНА!", 
+                                "Ошибка сохранения параметров", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
 
         }
     }

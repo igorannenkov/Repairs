@@ -41,7 +41,8 @@ namespace PostgresTest
                 {
                     if (ex.Message.Contains("23505"))
                     {
-                        MessageBox.Show("Запись с данным инженером существует в базе. Введите другие данные инженера.", "Проверка уникальности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Запись с данным инженером существует в базе. Введите другие данные инженера.", 
+                                        "Проверка уникальности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -51,7 +52,8 @@ namespace PostgresTest
             }
             else
             {
-                MessageBox.Show("Для сохранения информации необходимо ввести данные инженера. Проверьте вводимые данные.", "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Для сохранения информации необходимо ввести данные инженера. Проверьте вводимые данные.", 
+                                "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
         }

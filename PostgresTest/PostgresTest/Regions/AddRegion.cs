@@ -41,7 +41,8 @@ namespace PostgresTest
                 {
                     if (ex.Message.Contains("23505"))
                     {
-                        MessageBox.Show("Регион с таким наименованием существует. Введите другое наименование.", "Проверка уникальности данных", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Регион с таким наименованием существует. Введите другое наименование.", 
+                                        "Проверка уникальности данных", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
@@ -51,7 +52,8 @@ namespace PostgresTest
             }
             else
             {
-                MessageBox.Show("Для сохранения информации необходимо ввести наименование региона. Проверьте вводимые данные.", "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Для сохранения информации необходимо ввести наименование региона. Проверьте вводимые данные.", 
+                                "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

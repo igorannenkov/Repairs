@@ -38,7 +38,6 @@
             this.ATMsAddAtmBtn = new System.Windows.Forms.Button();
             this.ATMsATMIDTextBox = new System.Windows.Forms.TextBox();
             this.ATMsAddAtmCnlBtn = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ATMsATMIDLabel
@@ -91,8 +90,11 @@
             // 
             // ATMsModelComboBox
             // 
+            this.ATMsModelComboBox.DropDownHeight = 300;
+            this.ATMsModelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ATMsModelComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ATMsModelComboBox.FormattingEnabled = true;
+            this.ATMsModelComboBox.IntegralHeight = false;
             this.ATMsModelComboBox.Location = new System.Drawing.Point(92, 44);
             this.ATMsModelComboBox.Name = "ATMsModelComboBox";
             this.ATMsModelComboBox.Size = new System.Drawing.Size(425, 28);
@@ -100,8 +102,11 @@
             // 
             // ATMsRegionComboBox
             // 
+            this.ATMsRegionComboBox.DropDownHeight = 300;
+            this.ATMsRegionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ATMsRegionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ATMsRegionComboBox.FormattingEnabled = true;
+            this.ATMsRegionComboBox.IntegralHeight = false;
             this.ATMsRegionComboBox.Location = new System.Drawing.Point(92, 110);
             this.ATMsRegionComboBox.Name = "ATMsRegionComboBox";
             this.ATMsRegionComboBox.Size = new System.Drawing.Size(425, 28);
@@ -137,21 +142,11 @@
             this.ATMsAddAtmCnlBtn.UseVisualStyleBackColor = true;
             this.ATMsAddAtmCnlBtn.Click += new System.EventHandler(this.ATMsAddAtmCnlBtn_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 157);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 26);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Для подтверждения ввода\r\nнажмите \"Внести данные\"";
-            // 
             // ATMsAddATM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(529, 194);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.ATMsAddAtmCnlBtn);
             this.Controls.Add(this.ATMsATMIDTextBox);
             this.Controls.Add(this.ATMsAddAtmBtn);
@@ -183,6 +178,5 @@
         private System.Windows.Forms.Button ATMsAddAtmBtn;
         private System.Windows.Forms.TextBox ATMsATMIDTextBox;
         private System.Windows.Forms.Button ATMsAddAtmCnlBtn;
-        private System.Windows.Forms.Label label1;
     }
 }

@@ -32,7 +32,10 @@ namespace PostgresTest
                     this.Close();
                     MessageBox.Show("Соединение c БД установлено.","Информация", MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }
-                else MessageBox.Show("Ошибка подключения к базе данных.\r\n\r\n Возможные причины: \r\n 1.Введен неправильный логин или пароль; \r\n 2. Некорректные параметры подключения: \r\n адрес сервера, номер порта, имя БД.", "Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                else MessageBox.Show("Ошибка подключения к базе данных.\r\n\r\n Возможные причины: \r\n " +
+                                     "1.Введен неправильный логин или пароль; \r\n " +
+                                     "2. Некорректные параметры подключения: \r\n адрес сервера, номер порта, имя БД.", 
+                                     "Ошибка",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
 
         private void AuthLinkLabel_MouseClick(object sender, MouseEventArgs e)

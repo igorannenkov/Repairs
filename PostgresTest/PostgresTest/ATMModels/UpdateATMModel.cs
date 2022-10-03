@@ -37,7 +37,8 @@ namespace PostgresTest
                 {
                     if (ex.Message.Contains("23505"))
                     {
-                        MessageBox.Show("Модель с данным наименованием существует. Введите другое наименование.", "Проверка уникальности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Модель с данным наименованием существует. Введите другое наименование.", 
+                                        "Проверка уникальности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -47,7 +48,8 @@ namespace PostgresTest
             }
             else
             {
-                MessageBox.Show("Для сохранения информации необходимо указать модель устройства. Проверьте вводимые данные.", "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Для сохранения информации необходимо указать модель устройства. Проверьте вводимые данные.", 
+                                "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 

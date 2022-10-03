@@ -127,9 +127,12 @@
             // 
             // GenATMIDComboBox
             // 
+            this.GenATMIDComboBox.DropDownHeight = 300;
+            this.GenATMIDComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GenATMIDComboBox.Enabled = false;
             this.GenATMIDComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.GenATMIDComboBox.FormattingEnabled = true;
+            this.GenATMIDComboBox.IntegralHeight = false;
             this.GenATMIDComboBox.Location = new System.Drawing.Point(193, 10);
             this.GenATMIDComboBox.Name = "GenATMIDComboBox";
             this.GenATMIDComboBox.Size = new System.Drawing.Size(325, 28);
@@ -137,9 +140,12 @@
             // 
             // GenCategoryComboBox
             // 
+            this.GenCategoryComboBox.DropDownHeight = 300;
+            this.GenCategoryComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GenCategoryComboBox.Enabled = false;
             this.GenCategoryComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.GenCategoryComboBox.FormattingEnabled = true;
+            this.GenCategoryComboBox.IntegralHeight = false;
             this.GenCategoryComboBox.Location = new System.Drawing.Point(193, 188);
             this.GenCategoryComboBox.Name = "GenCategoryComboBox";
             this.GenCategoryComboBox.Size = new System.Drawing.Size(325, 28);
@@ -147,9 +153,12 @@
             // 
             // GenEngineerComboBox
             // 
+            this.GenEngineerComboBox.DropDownHeight = 300;
+            this.GenEngineerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GenEngineerComboBox.Enabled = false;
             this.GenEngineerComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.GenEngineerComboBox.FormattingEnabled = true;
+            this.GenEngineerComboBox.IntegralHeight = false;
             this.GenEngineerComboBox.Location = new System.Drawing.Point(193, 152);
             this.GenEngineerComboBox.Name = "GenEngineerComboBox";
             this.GenEngineerComboBox.Size = new System.Drawing.Size(325, 28);
@@ -166,9 +175,12 @@
             // 
             // GenRegionComboBox
             // 
+            this.GenRegionComboBox.DropDownHeight = 300;
+            this.GenRegionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GenRegionComboBox.Enabled = false;
             this.GenRegionComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.GenRegionComboBox.FormattingEnabled = true;
+            this.GenRegionComboBox.IntegralHeight = false;
             this.GenRegionComboBox.Location = new System.Drawing.Point(193, 46);
             this.GenRegionComboBox.Name = "GenRegionComboBox";
             this.GenRegionComboBox.Size = new System.Drawing.Size(325, 28);
@@ -185,9 +197,12 @@
             // 
             // GenModelComboBox
             // 
+            this.GenModelComboBox.DropDownHeight = 300;
+            this.GenModelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.GenModelComboBox.Enabled = false;
             this.GenModelComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.GenModelComboBox.FormattingEnabled = true;
+            this.GenModelComboBox.IntegralHeight = false;
             this.GenModelComboBox.Location = new System.Drawing.Point(193, 116);
             this.GenModelComboBox.Name = "GenModelComboBox";
             this.GenModelComboBox.Size = new System.Drawing.Size(325, 28);

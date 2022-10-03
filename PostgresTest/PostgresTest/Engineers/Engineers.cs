@@ -19,7 +19,6 @@ namespace PostgresTest
                 adapter.Fill(ds);
                 EngineersGridView.DataSource = ds.Tables[0];
             }
-
         }
 
         private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -53,7 +52,8 @@ namespace PostgresTest
             {
                 if (ex.Message.Contains("23503"))
                 {
-                    MessageBox.Show("Удаление данных невозможно, т.к. текущий инженер задействован в работах.", "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Удаление данных невозможно, т.к. текущий инженер задействован в работах.", 
+                                    "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -98,7 +98,8 @@ namespace PostgresTest
                 {
                     if (ex.Message.Contains("23503"))
                     {
-                        MessageBox.Show("Удаление данных невозможно, т.к. текущий инженер задействован в работах.", "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Удаление данных невозможно, т.к. текущий инженер задействован в работах.", 
+                                        "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {

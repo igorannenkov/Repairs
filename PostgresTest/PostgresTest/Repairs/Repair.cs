@@ -13,7 +13,13 @@ namespace PostgresTest.Repairs
             using (NpgsqlConnection connection = Database.GetConnection())
             {
                 connection.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\", \"ATMID\" AS \"ID УС\", \"Category\" AS \"Категория\", \"Engineer\" AS \"Инженер\", \"Date\" AS \"Дата\", COALESCE(\"Comment\", 'н/д') AS \"Комментарий\" FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\", " +
+                                                      "\"ATMID\" AS \"ID УС\", " +
+                                                      "\"Category\" AS \"Категория\", " +
+                                                      "\"Engineer\" AS \"Инженер\", " +
+                                                      "\"Date\" AS \"Дата\", " +
+                                                      "COALESCE(\"Comment\", 'н/д') AS \"Комментарий\" " +
+                                                      "FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -58,6 +64,7 @@ namespace PostgresTest.Repairs
                 (updRepairForm.Controls["UpdRepEngComboBox"] as ComboBox).ValueMember = "EngineerName";
                 (updRepairForm.Controls["UpdRepEngComboBox"] as ComboBox).DataSource = ds.Tables[0];
             }
+
             (updRepairForm.Controls["UpdRepIDAtmComboBox"] as ComboBox).Text = RepairGridView.CurrentRow.Cells[0].Value.ToString();
             (updRepairForm.Controls["UpdRepIDAtmComboBox"] as ComboBox).Text = RepairGridView.CurrentRow.Cells[1].Value.ToString();
             (updRepairForm.Controls["UpdRepCatComboBox"] as ComboBox).Text = RepairGridView.CurrentRow.Cells[2].Value.ToString();
@@ -78,7 +85,13 @@ namespace PostgresTest.Repairs
                     string toDelete = RepairGridView.CurrentRow.Cells[0].Value.ToString();
                     NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"Repairs\" WHERE \"RepairID\"=\'" + toDelete + "\'", connection);
                     cmd.ExecuteNonQuery();
-                    cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\", \"ATMID\" AS \"ID УС\", \"Category\" AS \"Категория\", \"Engineer\" AS \"Инженер\", \"Date\" AS \"Дата\", COALESCE(\"Comment\", 'н/д') AS \"Комментарий\" FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
+                    cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\", " +
+                                            "\"ATMID\" AS \"ID УС\", " +
+                                            "\"Category\" AS \"Категория\", " +
+                                            "\"Engineer\" AS \"Инженер\", " +
+                                            "\"Date\" AS \"Дата\", " +
+                                            "COALESCE(\"Comment\", 'н/д') AS \"Комментарий\" " +
+                                            "FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);
@@ -103,7 +116,13 @@ namespace PostgresTest.Repairs
                         string toDelete = RepairGridView.CurrentRow.Cells[0].Value.ToString();
                         NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"Repairs\" WHERE \"RepairID\"=\'" + toDelete + "\'", connection);
                         cmd.ExecuteNonQuery();
-                        cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\", \"ATMID\" AS \"ID УС\", \"Category\" AS \"Категория\", \"Engineer\" AS \"Инженер\", \"Date\" AS \"Дата\", COALESCE(\"Comment\", 'н/д') AS \"Комментарий\" FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
+                        cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\", " +
+                                                "\"ATMID\" AS \"ID УС\", " +
+                                                "\"Category\" AS \"Категория\", " +
+                                                "\"Engineer\" AS \"Инженер\", " +
+                                                "\"Date\" AS \"Дата\", " +
+                                                "COALESCE(\"Comment\", 'н/д') AS \"Комментарий\" " +
+                                                "FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
                         NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                         DataSet ds = new DataSet();
                         adapter.Fill(ds);

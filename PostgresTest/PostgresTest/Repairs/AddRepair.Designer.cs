@@ -116,8 +116,11 @@
             // 
             // AddRepCatComboBox
             // 
+            this.AddRepCatComboBox.DropDownHeight = 300;
+            this.AddRepCatComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddRepCatComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddRepCatComboBox.FormattingEnabled = true;
+            this.AddRepCatComboBox.IntegralHeight = false;
             this.AddRepCatComboBox.Location = new System.Drawing.Point(147, 44);
             this.AddRepCatComboBox.Name = "AddRepCatComboBox";
             this.AddRepCatComboBox.Size = new System.Drawing.Size(425, 28);
@@ -125,8 +128,11 @@
             // 
             // AddRepEngComboBox
             // 
+            this.AddRepEngComboBox.DropDownHeight = 300;
+            this.AddRepEngComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddRepEngComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddRepEngComboBox.FormattingEnabled = true;
+            this.AddRepEngComboBox.IntegralHeight = false;
             this.AddRepEngComboBox.Location = new System.Drawing.Point(147, 80);
             this.AddRepEngComboBox.Name = "AddRepEngComboBox";
             this.AddRepEngComboBox.Size = new System.Drawing.Size(425, 28);
@@ -150,8 +156,11 @@
             // 
             // AddRepIDAtmComboBox
             // 
+            this.AddRepIDAtmComboBox.DropDownHeight = 300;
+            this.AddRepIDAtmComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AddRepIDAtmComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddRepIDAtmComboBox.FormattingEnabled = true;
+            this.AddRepIDAtmComboBox.IntegralHeight = false;
             this.AddRepIDAtmComboBox.Location = new System.Drawing.Point(147, 9);
             this.AddRepIDAtmComboBox.Name = "AddRepIDAtmComboBox";
             this.AddRepIDAtmComboBox.Size = new System.Drawing.Size(425, 28);

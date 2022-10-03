@@ -31,10 +31,8 @@ namespace PostgresTest
                 adapter.Fill(ds);
                 this.ATMsRegionComboBox.ValueMember = "Регион";
                 this.ATMsRegionComboBox.DataSource = ds.Tables[0];
-
             }
         }
-
         private void ATMsAddAtmBtn_Click(object sender, EventArgs e)
         {
             if (ATMsATMIDTextBox.Text != String.Empty && ATMsModelComboBox.Text != String.Empty && ATMsAddressTextBox.Text != String.Empty && ATMsRegionComboBox.Text != String.Empty)
@@ -44,10 +42,15 @@ namespace PostgresTest
                     using (NpgsqlConnection connection = Database.GetConnection())
                     {
                         connection.Open();
-                        NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO \"ATMs\" (\"ATMID\",\"Address\",\"Model\",\"Region\") VALUES ('" + ATMsATMIDTextBox.Text + "','" + ATMsAddressTextBox.Text + "','" + ATMsModelComboBox.Text + "','" + ATMsRegionComboBox.Text + "')", connection);
+                        NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO \"ATMs\" (\"ATMID\",\"Address\",\"Model\",\"Region\") VALUES ('" + 
+                            ATMsATMIDTextBox.Text + "','" + ATMsAddressTextBox.Text + "','" + ATMsModelComboBox.Text + "','" + ATMsRegionComboBox.Text + "')", connection);
                         cmd.ExecuteNonQuery();
 
-                        cmd = new NpgsqlCommand("SELECT \"ATMID\" AS \"ID\",\"Address\" AS \"Адрес\",\"Model\" AS \"Модель\",\"Region\" AS \"Регион\" FROM \"ATMs\"", connection);
+                        cmd = new NpgsqlCommand("SELECT \"ATMID\" AS \"ID\"," +
+                                                "\"Address\" AS \"Адрес\"," +
+                                                "\"Model\" AS \"Модель\"," +
+                                                "\"Region\" AS \"Регион\" " +
+                                                "FROM \"ATMs\" ORDER BY \"ATMID\"", connection);
                         NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                         DataSet ds = new DataSet();
                         adapter.Fill(ds);
@@ -59,7 +62,8 @@ namespace PostgresTest
                 {
                     if (ex.Message.Contains("23505"))
                     {
-                        MessageBox.Show("Запись с таким ID существует. Введите другой идентификатор.", "Проверка уникальности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Запись с таким ID существует. Введите другой идентификатор.", 
+                                        "Проверка уникальности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -69,7 +73,8 @@ namespace PostgresTest
             }
             else
             {
-                MessageBox.Show("Для сохранения информации необходимо заполнить все поля. Проверьте вводимые данные.", "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Для сохранения информации необходимо заполнить все поля. Проверьте вводимые данные.", 
+                                "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }  
         }
 

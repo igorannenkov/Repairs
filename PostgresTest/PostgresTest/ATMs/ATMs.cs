@@ -19,7 +19,11 @@ namespace PostgresTest
             using (NpgsqlConnection connection = Database.GetConnection())
             {
                 connection.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT \"ATMID\" AS \"ID\",\"Address\" AS \"Адрес\",\"Model\" AS \"Модель\",\"Region\" AS \"Регион\" FROM \"ATMs\" ORDER BY \"ATMID\"", connection);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT \"ATMID\" AS \"ID\"," +
+                                                      "\"Address\" AS \"Адрес\"," +
+                                                      "\"Model\" AS \"Модель\"," +
+                                                      "\"Region\" AS \"Регион\" " +
+                                                      "FROM \"ATMs\" ORDER BY \"ATMID\"", connection);
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -46,7 +50,11 @@ namespace PostgresTest
                     NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"ATMs\" WHERE \"ATMID\"=\'" + toDelete + "\'", connection);
                     cmd.ExecuteNonQuery();
 
-                    cmd = new NpgsqlCommand("SELECT \"ATMID\" AS \"ID\",\"Address\" AS \"Адрес\",\"Model\" AS \"Модель\",\"Region\" AS \"Регион\" FROM \"ATMs\"", connection);
+                    cmd = new NpgsqlCommand("SELECT \"ATMID\" AS \"ID\"," +
+                                            "\"Address\" AS \"Адрес\"," +
+                                            "\"Model\" AS \"Модель\"," +
+                                            "\"Region\" AS \"Регион\" " +
+                                            "FROM \"ATMs\" ORDER BY \"ATMID\"", connection);
 
                     NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                     DataSet ds = new DataSet();
@@ -58,7 +66,8 @@ namespace PostgresTest
             {
                 if (ex.Message.Contains("23503"))
                 {
-                    MessageBox.Show("Удаление данных невозможно, т.к. по данному устройству в базе зарегистрированы работы.","Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Удаление данных невозможно, т.к. по данному устройству в базе зарегистрированы работы.",
+                                    "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -81,7 +90,11 @@ namespace PostgresTest
                         NpgsqlCommand cmd = new NpgsqlCommand("DELETE FROM \"ATMs\" WHERE \"ATMID\"=\'" + toDelete + "\'", connection);
                         cmd.ExecuteNonQuery();
 
-                        cmd = new NpgsqlCommand("SELECT \"ATMID\" AS \"ID\",\"Address\" AS \"Адрес\",\"Model\" AS \"Модель\",\"Region\" AS \"Регион\" FROM \"ATMs\"", connection);
+                        cmd = new NpgsqlCommand("SELECT \"ATMID\" AS \"ID\"," +
+                                                "\"Address\" AS \"Адрес\"," +
+                                                "\"Model\" AS \"Модель\"," +
+                                                "\"Region\" AS \"Регион\" " +
+                                                "FROM \"ATMs\" ORDER BY \"ATMID\"", connection);
 
                         NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                         DataSet ds = new DataSet();
@@ -93,7 +106,8 @@ namespace PostgresTest
                 {
                     if (ex.Message.Contains("23503"))
                     {
-                        MessageBox.Show("Удаление данных невозможно, т.к. по данному устройству в базе зарегистрированы работы.", "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Удаление данных невозможно, т.к. по данному устройству в базе зарегистрированы работы.", 
+                                        "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -127,8 +141,6 @@ namespace PostgresTest
 
             }
 
-
-
             (updATMForm.Controls["UpdATMIDTextBox"] as TextBox).Text = ATMsGridView.CurrentRow.Cells[0].Value.ToString();
             (updATMForm.Controls["UpdATMModComboBox"] as ComboBox).Text = ATMsGridView.CurrentRow.Cells[2].Value.ToString();
             (updATMForm.Controls["UpdATMAddrTextBox"] as TextBox).Text = ATMsGridView.CurrentRow.Cells[1].Value.ToString();
@@ -136,11 +148,6 @@ namespace PostgresTest
 
             updATMForm.Tag = ATMsGridView.CurrentRow.Cells[0].Value.ToString();
             updATMForm.ShowDialog();
-
-            //string prevEngName = ATMModelGridView.CurrentCell.Value.ToString();
-            //(updATMModelForm.Controls["UpdateATMTextBox"] as TextBox).Text = prevEngName;
-            //updATMModelForm.Tag = prevEngName;
-            //updATMModelForm.ShowDialog();
         }
     }
 }

@@ -49,7 +49,8 @@ namespace PostgresTest
             {
                 if (ex.Message.Contains("23503"))
                 {
-                    MessageBox.Show("Удаление данных невозможно, т.к. по данному региону в базе зарегистрированы работы.", "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Удаление данных невозможно, т.к. по данному региону в базе зарегистрированы работы.", 
+                                    "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -93,7 +94,8 @@ namespace PostgresTest
                 {
                     if (ex.Message.Contains("23503"))
                     {
-                        MessageBox.Show("Удаление данных невозможно, т.к. по данному региону в базе зарегистрированы работы.", "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Удаление данных невозможно, т.к. по данному региону в базе зарегистрированы работы.", 
+                                        "Ограничение ссылочной целостности данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {

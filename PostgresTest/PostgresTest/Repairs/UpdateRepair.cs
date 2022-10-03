@@ -27,12 +27,22 @@ namespace PostgresTest.Repairs
                     {
                         connection.Open();
                         string prevRepairID = this.Tag.ToString();
-                        string query = "UPDATE \"Repairs\" SET \"ATMID\" = \'" + UpdRepIDAtmComboBox.Text + "\'," + "\"Category\" = \'" + UpdRepCatComboBox.Text + "\'," +
-                            "\"Engineer\" = \'" + UpdRepEngComboBox.Text + "\'," + "\"Date\" = \'" + UpdRepairDTPicker.Value.ToString("dd/MM/yyyy") + "\'," + "\"Comment\" = \'"
-                            + UpdRepCommTextBox.Text + "\' WHERE \"RepairID\" = \'" + prevRepairID + "\'";
+                        string query = "UPDATE \"Repairs\" SET " +
+                                       "\"ATMID\" = \'" + UpdRepIDAtmComboBox.Text + "\'," + 
+                                       "\"Category\" = \'" + UpdRepCatComboBox.Text + "\'," +
+                                       "\"Engineer\" = \'" + UpdRepEngComboBox.Text + "\'," + 
+                                       "\"Date\" = \'" + UpdRepairDTPicker.Value.ToString("dd/MM/yyyy") + "\'," + 
+                                       "\"Comment\" = \'" + UpdRepCommTextBox.Text + "\' " +
+                                       "WHERE \"RepairID\" = \'" + prevRepairID + "\'";
                         NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
                         cmd.ExecuteNonQuery();
-                        cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\",\"ATMID\" AS \"ID УС\",\"Category\" AS \"Категория\",\"Engineer\" AS \"Инженер\",\"Date\" AS \"Дата\",\"Comment\" AS \"Комментарий\" FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
+                        cmd = new NpgsqlCommand("SELECT \"RepairID\" AS \"ID\"," +
+                                                "\"ATMID\" AS \"ID УС\"," +
+                                                "\"Category\" AS \"Категория\"," +
+                                                "\"Engineer\" AS \"Инженер\"," +
+                                                "\"Date\" AS \"Дата\"," +
+                                                "\"Comment\" AS \"Комментарий\" " +
+                                                "FROM \"Repairs\" ORDER BY \"RepairID\"", connection);
                         NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                         DataSet ds = new DataSet();
                         adapter.Fill(ds);
@@ -47,7 +57,8 @@ namespace PostgresTest.Repairs
             }
             else
             {
-                MessageBox.Show("Для сохранения информации необходимо заполнить все поля. Проверьте вводимые данные.", "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Для сохранения информации необходимо заполнить все поля. Проверьте вводимые данные.", 
+                                "Проверка корректности ввода данных", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
