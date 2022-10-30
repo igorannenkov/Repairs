@@ -44,5 +44,11 @@ namespace PostgresTest
             settingsForm.Owner = this;
             settingsForm.ShowDialog();
         }
+
+        private void Authorization_Load(object sender, EventArgs e)
+        {
+            AuthUserIDTextBox.AddPlaceHolder("Введите логин");
+            AuthPasswordTextBox.AddPlaceHolder("Пароль");
+        }
     }
 }

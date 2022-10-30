@@ -144,6 +144,7 @@
     <Compile Include="DBConnectionSettings.Designer.cs">
       <DependentUpon>DBConnectionSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlaceHolderManager.cs" />
     <Compile Include="Queries\QueryGen.cs">
       <SubType>Form</SubType>
     </Compile>
