@@ -21,9 +21,10 @@ namespace PostgresTest
                     using (NpgsqlConnection connection = Database.GetConnection())
                     {
                         connection.Open();
-                        NpgsqlCommand cmd = new NpgsqlCommand("INSERT INTO \"ATMModels\" (\"Model\") VALUES ('" + AddATMModelTextBox.Text + "')", connection);
+                        NpgsqlCommand cmd = new NpgsqlCommand(@"INSERT INTO ""ATMModels"" (""Model"") VALUES (@atmModel)", connection);
+                        cmd.Parameters.AddWithValue("@atmModel", AddATMModelTextBox.Text);
                         cmd.ExecuteNonQuery();
-                        cmd = new NpgsqlCommand("SELECT \"Model\" AS \"Модель УС\" FROM \"ATMModels\" ORDER BY \"Model\"", connection);
+                        cmd = new NpgsqlCommand(@"SELECT ""Model"" AS ""Модель УС"" FROM ""ATMModels"" ORDER BY ""Model""", connection);
                         NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(cmd);
                         DataSet ds = new DataSet();
                         adapter.Fill(ds);

@@ -37,6 +37,7 @@
             this.RepairMenuStrip = new System.Windows.Forms.MenuStrip();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RepairGridView = new System.Windows.Forms.DataGridView();
+            this.выгрузитьВExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RepairContextMenuStrip.SuspendLayout();
             this.RepairMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RepairGridView)).BeginInit();
@@ -59,7 +60,8 @@
             // RepairMenuStrip
             // 
             this.RepairMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьToolStripMenuItem});
+            this.добавитьToolStripMenuItem,
+            this.выгрузитьВExcelToolStripMenuItem});
             this.RepairMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.RepairMenuStrip.Name = "RepairMenuStrip";
             this.RepairMenuStrip.Size = new System.Drawing.Size(994, 24);
@@ -113,6 +115,13 @@
             this.RepairGridView.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.RepairGridView_CellMouseDoubleClick);
             this.RepairGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RepairGridView_KeyDown);
             // 
+            // выгрузитьВExcelToolStripMenuItem
+            // 
+            this.выгрузитьВExcelToolStripMenuItem.Name = "выгрузитьВExcelToolStripMenuItem";
+            this.выгрузитьВExcelToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
+            this.выгрузитьВExcelToolStripMenuItem.Text = "Выгрузить в Excel";
+            this.выгрузитьВExcelToolStripMenuItem.Click += new System.EventHandler(this.выгрузитьВExcelToolStripMenuItem_Click);
+            // 
             // Repair
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,5 +149,6 @@
         private System.Windows.Forms.MenuStrip RepairMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
         private System.Windows.Forms.DataGridView RepairGridView;
+        private System.Windows.Forms.ToolStripMenuItem выгрузитьВExcelToolStripMenuItem;
     }
 }

@@ -102,5 +102,10 @@ namespace PostgresTest
             updATMModelForm.Tag = prevEngName;
             updATMModelForm.ShowDialog();
         }
+
+        private void выгрузитьВExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExcelReporter.GetReport(ATMModelGridView);
+        }
     }
 }

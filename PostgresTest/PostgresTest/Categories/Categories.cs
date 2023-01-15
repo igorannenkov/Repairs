@@ -107,5 +107,10 @@ namespace PostgresTest
             updDeviceForm.Tag = prevDevName;
             updDeviceForm.ShowDialog();
         }
+
+        private void выгрузитьВExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExcelReporter.GetReport(CategoriesGridView);
+        }
     }
 }

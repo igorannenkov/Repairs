@@ -104,5 +104,10 @@ namespace PostgresTest
                 }
             }
         }
+
+        private void выгрузитьВExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExcelReporter.GetReport(RegionsDataGridView);
+        }
     }
 }

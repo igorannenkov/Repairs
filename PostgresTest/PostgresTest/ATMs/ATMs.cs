@@ -149,5 +149,10 @@ namespace PostgresTest
             updATMForm.Tag = ATMsGridView.CurrentRow.Cells[0].Value.ToString();
             updATMForm.ShowDialog();
         }
+
+        private void выгрузитьВExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExcelReporter.GetReport(ATMsGridView);
+        }
     }
 }

@@ -135,5 +135,10 @@ namespace PostgresTest.Repairs
                 }
             }
         }
+
+        private void выгрузитьВExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ExcelReporter.GetReport(RepairGridView);
+        }
     }
 }

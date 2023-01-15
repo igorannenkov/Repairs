@@ -38,6 +38,7 @@
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RegionsMenuStrip = new System.Windows.Forms.MenuStrip();
             this.добавитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.выгрузитьВExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.RegionsDataGridView)).BeginInit();
             this.RegionsContextMenuStrip.SuspendLayout();
             this.RegionsMenuStrip.SuspendLayout();
@@ -102,7 +103,8 @@
             // RegionsMenuStrip
             // 
             this.RegionsMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.добавитьToolStripMenuItem});
+            this.добавитьToolStripMenuItem,
+            this.выгрузитьВExcelToolStripMenuItem});
             this.RegionsMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.RegionsMenuStrip.Name = "RegionsMenuStrip";
             this.RegionsMenuStrip.Size = new System.Drawing.Size(354, 24);
@@ -115,6 +117,13 @@
             this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             this.добавитьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click_1);
+            // 
+            // выгрузитьВExcelToolStripMenuItem
+            // 
+            this.выгрузитьВExcelToolStripMenuItem.Name = "выгрузитьВExcelToolStripMenuItem";
+            this.выгрузитьВExcelToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
+            this.выгрузитьВExcelToolStripMenuItem.Text = "Выгрузить в Excel";
+            this.выгрузитьВExcelToolStripMenuItem.Click += new System.EventHandler(this.выгрузитьВExcelToolStripMenuItem_Click);
             // 
             // Regions
             // 
@@ -143,5 +152,6 @@
         private System.Windows.Forms.ContextMenuStrip RegionsContextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem добавитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem выгрузитьВExcelToolStripMenuItem;
     }
 }
